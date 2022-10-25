@@ -251,3 +251,8 @@ WHERE sp.vet_id IS NULL AND v.name LIKE 'Maisy Smith'
 GROUP BY spe.name
 ORDER BY most_visited_by_species DESC
 LIMIT (1);
+
+-- ** DAY 5 **
+explain analyze SELECT COUNT(*) FROM visits where animals_id = 4;
+explain analyze SELECT * FROM visits where vets_id = 2;
+explain analyze SELECT * FROM owners where email = 'owner_18327@mail.com';
