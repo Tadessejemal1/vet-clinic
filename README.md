@@ -1,7 +1,6 @@
-# curriculum-databases-projects-template
+# Vet Clinic 
 
-> This template should be used for database related projects at Microverse.
-> Generate your own repository, update this README and edit all files content while working on projects. You should not be adding any new files unless asked otherwise.
+Vet-Clinic is A relational database using POSTGRESQL to create the initial data structure for a vet clinic. It contains related data about animals, animals' owners, clinic employees, and visits.
 
 
 ## Getting Started
@@ -15,11 +14,17 @@ This repository includes files with plain SQL that can be used to recreate a dat
 
 ## Authors
 
-👤 **Author**
+## 👤 Tadesse Jemmal
 
-- GitHub: [@githubhandle](https://github.com/TadesseJemal1)
-- Twitter: [@twitterhandle](https://twitter.com/twitterhandle)
-- LinkedIn: [LinkedIn](https://linkedin.com/in/linkedinhandle)
+- GitHub: 
+
+- LinkedIn: 
+
+## 👤 Matias Aguirre
+
+- GitHub: [@LokurasRlz](https://github.com/LokurasRlz)
+
+- LinkedIn: [LinkedIn](https://www.linkedin.com/in/)
 
 ## 🤝 Contributing
 
@@ -36,7 +41,3 @@ Give a ⭐️ if you like this project!
 - Hat tip to anyone whose code was used
 - Inspiration
 - etc
-
-## 📝 License
-
-This project is [MIT](./MIT.md) licensed.
