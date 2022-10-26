@@ -10,7 +10,7 @@ create table patients(
 create table medical_histories(
     id int generated always as identity,
     admitted_at timestamp,
-    patient_id int,
+    patient_id int reference patients(id),
     status varchar(60),
     primary key(id)
 );
@@ -20,7 +20,7 @@ create table invoices(
     total_amount decimal,
     generated_at timestamp,
     payed_at timestamp,
-    medical_history_id  int,
+    medical_history_id  int reference medical_histories(id),
     primary key(id)
 );
 
@@ -29,8 +29,8 @@ create table invoices_items(
     unit_price decimal,
     quantity  int,
     total_price  decimal,
-    invoice_id  int,
-    treatment_id int,
+    invoice_id  int reference invoices(id),
+    treatment_id int reference treatments(id),
     primary key(id)
 );
 
@@ -41,23 +41,12 @@ create table treatments(
     primary key(id)
 );
 
-/*Creating  foreign keys for the relationship between one to many tables */
-
-ALTER TABLE patients ADD FOREIGN KEY (id) REFERENCES medical_histories(id);
-ALTER TABLE invoices ADD FOREIGN KEY (id) REFERENCES invoices_items(id);
-
-/* transition table between medical_histories and treatments */
-
-create table medical_form();
-
-/*Creating  foreign keys for the relationship between many to many tables */
-
-ALTER TABLE medical_form ADD COLUMN medical_histories_id INT REFERENCES medical_histories(id);
-ALTER TABLE medical_form ADD COLUMN treatments_id INT REFERENCES treatments(id);
 
 /* FK indexes */
 
-CREATE INDEX patients_refid ON patients(id);
-CREATE INDEX invoices_refid ON invoices(id);
-CREATE INDEX treatment_refid ON treatments(id);
-CREATE INDEX medical_histories_refid ON medical_histories(id);
+CREATE INDEX ON medical_histories (patient_id);
+CREATE INDEX ON invoices (medical_history_id);
+CREATE INDEX ON invoice_items (invoice_id);
+CREATE INDEX ON invoice_items (treatment_id);
+CREATE INDEX ON medical_histories_has_treatments (medical_history_id);
+CREATE INDEX ON medical_histories_has_treatments (treatment_id);
